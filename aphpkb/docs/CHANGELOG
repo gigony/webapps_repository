@@ -1,0 +1,592 @@
+Andy's PHP Knowledgebase
+
+Version 0.95.8 (Development)
+
+Changes from 0.95.7
+
+* security fixes
+
+Changes from 0.95.6
+
+* security fixes
+* html page improvements
+* email to article feature improved
+
+Changes from 0.95.5
+
+* improved permissions check
+* corrected header when creating an article
+* added permissions in author details (admin)
+
+Changes from 0.95.4
+
+* fixed question and answers
+* removed PDF plugin
+
+Changes from 0.95.3
+
+* improved article listing
+* improved aritcle submission
+* improved attachment handling
+* improved author/admin login
+* minor tweeks to default configuration
+
+Changes from 0.95.2
+
+* Fixed security flaws (sql injection) in multiple scripts, a_viewusers.php, keysearch.php, saa.php, a_authordetails.php and pending.php
+
+Changes from 0.95.1
+
+* updated Article list to partially use mysql class
+* updated registration script to use mysql class
+* fixed multi-author plugin
+* removed a_authorview.php replaced with a_viewusers.php
+
+Changes from 0.95
+
+* update of a_edita.php from form-get to form-post
+* update of saa.php - fixing lost authorid issue
+
+Changes from 0.94.9
+
+* new multi-author plugin
+
+Changes from 0.94.8
+
+* Improvements to keyseach.php including extending the search to list articles by author.</li>
+* Updated author details </li>
+* New links from article lists to author details</li>
+
+Changes from 0.94.7
+
+* fixed single page pagination bug
+* improved author list for admin
+* fixed non-installing footer mode
+* fixed article tagging
+
+
+Changes from 0.94.6
+
+* removed all short tags
+* improved admin view author details
+* improved article submission
+* updated application header
+
+Changes from 0.94.5
+
+* added permissions check at pre-install and at Admin login
+* improved installation wizard and improved footer() function.
+
+Changes from 0.94.4 
+
+* updated ada.php for author article deleting
+* improved article and comment approval
+* improved footer function
+
+Changes from 0.94.3
+
+* improved question submission
+* improved registered user view for Admin
+
+Changes from 0.94.2
+
+* improved Article submission of saved articles
+* improved article rating
+* update older database connections
+
+Changes from 0.94.1
+
+* updated install footer
+* replaced abk.php script with keysearch.php (re-write)
+
+Changes from 0.94
+
+* improved article view
+* improved variable checking
+* improved statistics
+
+Changes from 0.93.9
+
+* fixes for author and admin article editing
+
+Changes from 0.93.8
+
+* Minor config fixes
+* Keyword reserved word fix for database file
+
+Changes from 0.93.7
+
+* Fixed HTML Editor plugin for article editing
+
+Changes from 0.93.6
+
+* fixes for saving and submiting articles by authors
+
+Changes from 0.93.5
+
+* fixed pending article delete
+
+Changes from 0.93.4
+
+* improved messages to the install wizard
+* included failover for page_title against article title.
+* fixed admin user login
+
+Changes from 0.93.3
+
+* improvements to integer variable checking
+* fix for first comment appearing as a question
+* fix for article rating
+
+Changes from 0.93.2
+
+* improved installation
+
+Changes from 0.93.1
+
+* improved installation
+* fixed article comments
+
+* improved security for uploaded files
+* improved installation scripts
+
+Changes from 0.92.8
+
+* improved index page
+* minor tweaking of page elements
+* improvements to login and logout
+* fixed forgot_password.php
+* fixed article submission
+* improved html tag filtering for the html editor plugin
+* implemented new Q & A
+* removed questions table from the database
+
+Changes from 0.92.7
+
+* fixed install status in the default configuration file
+
+Changes from 0.92.6
+
+* fixed sql file
+* improved knowledgebase configuration and setup.
+
+Changes from 0.92.5
+
+* Improved Documentation
+* Improved pending articles, comments and questions
+
+Changes from 0.92.4
+
+* fixed pending articles query
+* improved pending article view for the Admin
+* fixed user/admin authentication
+
+Changes from 0.92.3
+
+* fixed akb.sql file
+
+Changes from 0.92.2
+
+* introduced a new article viewer script v.php
+* improved admin authentication
+* added Admin login to author table
+* removed PHP_AUTH authentication for Admin login
+* removed knowledgebase admin password from akb.sql file
+* added Admin user to akb.sql file
+* moved html header and menus to 'html' directory for easy editing
+* included article details when viewing an article
+* improved pending, approval and Q&A
+* re-implemented article tags, related articles, comments and article rating.
+
+Changes from 0.92.1
+
+* updated feedback and development email links in documentation.
+* improved admin authentication
+
+Changes from 0.92
+
+* included the number of records displayed on the main kb page as a setup option
+* fixed article statistics in kbadmin
+* improved header functions with html path for mostly html code
+* included dev folder for development mini-projects between releases
+
+Changes from 0.91
+
+* improved rss plugin
+
+Changes from 0.9
+
+* fixed admin view all articles
+* minor formatting and placement changes in template and index
+* improved author article list
+
+Changes from 0.89
+
+* removed product field references
+* updated project links to aphpkb.org
+* improved article editing, saving and submission and admin article editing and approval
+* improved PDF plugin
+
+Changes from 0.88.9
+ 
+* simplified initial configuration and error handling
+
+Changes from 0.88.8
+
+* Introduced PDF and RSS plugins
+* fixed article approval
+
+Changes from 0.88.7
+
+* Replaced categories with article tags.
+
+Changes from 0.88.6
+
+* fixed a_setup.php script, now allows for initial access to setup form upon new installation
+* corrected variable problems in a_categories.php
+* improved production level selection in a_setup.php
+* fixed typographical error in sql file
+
+Changes from 0.88.5
+
+* fixed submit date issue in sql file
+* corrected password fields in sql file and a_setup.php
+* fixed a_categories for adding new category
+* improved article editing
+
+Changes from 0.88
+
+* fixed default password issue in setup page
+* introduced article attachments in the author's article list with the ability to view/delete attachments.
+
+Changes from 0.87
+
+* Improvements to the setup and configuration
+* added html editor plugin for author editing
+
+Changes from 0.86
+
+* Improvements to setup and configuration
+* fixed problems with akb.sql file
+* improved filtering for html edited articles
+
+Changes from 0.85
+
+* Improvements to setup and configuration
+* Introduced plugins, added HTML Editor Plugin
+
+Changes from 0.84
+
+* fixed intital setup
+
+Changes from 0.83
+
+* unified user/admin to a single interface
+* fixed Q & A
+* moved global.php to functions.php
+* improved subcategory article listing
+* fixed title display in statistics, questions and categories
+* removed admin directory, prefixed/renamed admin scripts 'a_'
+
+Changes from 0.82
+
+* improved xss filtering for user inputs.
+* improved flexibility for integrating with HTML editors
+* fixed article information in side panel
+* fixed related article listing in side panel
+* improved category listing in category forms.
+
+Changes from 0.81
+
+* improvements to input filtering article submissions and article searching.
+
+Changes from 0.80
+
+* fixed author registration
+
+Changes from 0.79
+
+* fix to the database
+* fix to keyword searching for articles
+
+Changes from 0.78
+
+* improved article viewing
+* fixed printer friendly article viewing 
+* fixed question and answers
+
+Changes from 0.77
+
+* fixed author login and authentication
+* improved knowledgebase setup
+
+Changes from 0.76
+
+* fixed category listing
+* improved article submission
+* minor fixes to admin pages including view article, statistics and pending questions.
+
+
+Changes from 0.75
+
+* fixed article comments
+* created header, menu and footer functions in global file.
+* improved article information for article viewing in kbadmin.
+* improved article rating form.
+* improved related article search.
+
+Changes from 0.74
+
+* improved installation and configuration
+* introduced product field, allowing greater accuracy with searching
+* improved keyword searching 
+* introduced article attachments
+* format fixes for item listings
+
+Changes from 0.73
+
+* Major changes to category functions (re-write)
+* Improvements to Q&A, Article Submission, Comments and article rating
+* Corrections to article viewing and comment order.
+
+Changes from 0.72
+
+* Fixed Author Authentication
+* small formatting fix in the admin interface
+* fixed article rating
+
+Changes from 0.71
+
+* Style clean-up, fixes for IE and Firefox(Mac).
+* Removed image upload, links and link utility
+* added ISSUES file for known problems with aphpkb
+
+Changes from 0.70
+
+* fixed submit article links
+* fixed article count in categories
+
+Changes from 0.67
+
+* Improved rating article
+* Introduced Image uploading for authors
+* Improved article summaries
+* Improved article viewing for users and admin
+* Fixed article editing for admin
+* Fixed article rating so authors don't have the option of rating their own articles.
+
+Changes from 0.66
+
+* Fix to Q&A
+* Improved article editing in kbadmin
+
+Changes from 0.65
+
+* introduced a related article list when viewing an article.
+* improved admin view_article, providing greater details for the kb admin.
+* improved article editing by authors
+
+Changes from 0.64
+
+* some text and formatting changes
+* improved article submission
+
+Changes from 0.63
+
+* Article Search by Keyword query fixed
+* Improved aphpkb setup
+* Added Popularly rated list in main page
+
+Changes from 0.62
+
+* fixes to the database structure
+
+Changes from 0.61
+
+* improved article rating
+* updated documentation
+
+Changes from 0.6
+
+* fixed ranking.php to list articles only
+* updated install instructions for the latest version.
+* improved article rating
+
+Changes from 0.59
+
+* Introduced author login/logout/change password and reset password
+* Introduced author list/edit/delete articles
+* re-wrote submit_article with support for author submission and author save for future submission.
+* Improved view_all.php, pending_articles.php and edit_articles.php in kbadmin.
+* Introduced view_authors.php and authordetails.php in kbadmin
+* Improved Category and subcategory listings
+* Improved Ask a Question
+
+Changes from 0.57 and 0.58
+
+* XSS Security Fixes
+
+
+Changes from 0.56
+
+* Improved knowledgebase setup
+
+Changes from 0.55
+
+* new home URL for navigation links ( user & kbadmin )
+* updated kbadmin header and footer
+* Improved suggest category
+
+Changes from 0.54
+
+* New Printer Friendly View in the article view script.
+* Footer file now updates version number from /docs/VERSION.
+* Minor change in /docs/VERSION format.
+
+Changes from 0.53
+
+* Improvements to authorization scripts in the kbadmin
+* code cleanup and removal of old scripts which are no longer used.
+
+Changes from 0.52
+
+* Improved Links Utility in kbadmin
+* Date fix in article view
+* Added limited rating in article view
+
+Changes from 0.5 and 0.51
+
+* Small improvements to install script
+* Removed Users table for the Database, no longer used
+* Added Links to the Database
+* Added Links Utility to kbadmin
+* Added version number on the template
+
+Changes from 0.45
+
+* minor code cleanup
+* database connect script replaced with config file
+* created install.php script to set up kb/db values
+* cleaned up database for categories
+
+Changes from 0.44
+
+* corrected article listing by category
+* minor formatting changes to template
+* added article count for sub-category listing
+* added Parent Category link for sub-category listing
+* corrected formatting for top5 and recent5 article listings
+* cleaned up title and article summaries.
+* fixed - views not being updated in view_article.php
+
+Changes from 0.43
+
+* Improvements to Q&A 
+* Introduced Sub-Categories
+* Improvments to some formatting
+* Fix to submit_comment
+
+Changes from 0.41 and 0.42
+
+* Corrected akb.sql file
+
+Changes from 0.4
+
+* Corrected Users table
+* improved cateogory suggestion
+
+Changes from 0.39
+
+* converted formatting from <table> to CSS
+* Install Guide Re-write
+* Limited Email Integration with Answered Questions
+* Improved Path handling with all scripts
+* Incorrect Search Link corrected
+
+Changes from 0.38
+
+* Improved Q&amp;A functions 
+* Simplified Cateogory Listing 
+* Simplified Search Results 
+* Added pagination for listing and results
+
+Changes from 0.371
+
+* Added Q&A functions
+* Simplified Article Submission
+* Streamlined Installation Guide
+* Added Statistics for KB Admin
+
+Changes from 0.361
+
+* Minor name change: Andy's PHP Knowledgebase
+* Suggest a Category for users.
+* Category Add, Approve, Delete and Edit for KB Admin
+* Added the ability for users to add comments to an article
+* Added Comments Approve, Edit and Delete for KB Admin
+* Basic Editor for Article Submissions
+
+Changes from 0.35
+
+* changed articledata field from blob to largetext
+* fixes to installation instructions
+* cleaned up database connection file and auth file references
+* added delete article to Pending and View_All.
+* edit_article: renamed 'ClearAll' to 'Revert'
+* edit_article: fixed defaut category type
+
+Changes from 0.33
+
+* removed frequently asked questions
+* placed articledata into the database
+* removed file, open/read/write functions
+* added article count per category
+* removed View All link from Main page
+* renamed main and admin page links 
+* modified aphpkb project link
+* created new project images logo.gif and aphpkb.jpg
+
+Changes from 0.31
+
+ * added article view count
+ * added top 5 and last 5 articles on search page
+ * added category table to the db
+ * fixed db connection file issue
+ * added View All Articles in Admin
+ * added Edit on both Pending and View All Article pages
+ * Added Change Admin Password
+ * Fixed Slashes problem with Title and Articles
+ * Added Approved/Pending indicator for edit_article
+
+changes from 0.3
+
+ * re-included connection details
+ * created new adminheader.html and adminfooter files
+ * removed imgs and includes from admin
+
+changes from 0.21
+
+ * fixed admin authentication
+ * added stripslashes for article title
+ * added check for approval before displaying article to user
+ * fixed result formatting on admin page
+ * new default images
+
+changes from 0.2
+
+* Minor document and script changes, included auth.php in package, included authentication script in install instructions.
+
+Changes from 0.1
+
+* added Frequently Asked Questions
+* removed "Submit an Article" Emailer.
+* added submit an Article allowing users to add articles
+* changed query ORDER by Title for the search and ORDER by FileID for "showall"
+* altered results table
+* added admin directory allowing the administrator to check articles before approving them.
+* added authentication to the admin user
+* added users table for admin authentication
+* added Category selection
+* added approve.php script to enable articles.
+* added article summary in search results.
+

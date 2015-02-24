@@ -1,0 +1,56 @@
+Andy's PHP Knowledgebase
+
+Version 0.95.8 (Development)
+
+Changes from 0.95.7
+
+* security fixes
+
+Installation
+
+1.  Extract the file to your DocumentRoot
+
+e.g.    # tar xvfz aphpkb-x.xx.x.tgz -C /-documentroot-/
+
+1.1 For Linux/Unix, check that you have the correct permissions and ownership.
+
+e.g.,  
+        # cd /-documentroot-/
+        # chmod 755 -R ./aphpkb
+        # chown -R apache:apache ./aphpkb
+        
+	another example (using MacOSX),
+
+	# cd /Library/WebServer/Documents/
+	# chmod 775 -R ./aphpkb
+	# chown -R www:devuser ./aphpkb
+	
+1.2 Additionally, 'the attach' folder should have permissions for read-write by the owner but not execution permissions
+
+	# cd /path-to-aphpkb/
+	# chmod 600 ./attach
+
+2.  Create the Database
+
+# mysql -u [database user]
+ mysql> create database akb;
+ mysql> use akb;
+ mysql> exit
+# mysql -u [database user] akb < /path-to-aphpkb/docs/akb.sql
+
+Where 'akb' is the database name.
+
+3.  Knowledgebase setup
+
+Access:
+
+http://your-url-to-aphpkb/install/
+
+If Aphpkb has not been setup yet, the page will display this file, the next step is to click
+on the Step 1 - Database link on the menu.
+
+It is important that once the final step has taken place, that the database has been created
+from item 2 on this guide.
+
+
+Please feel free to send any feedback / comments / fixes to dev@sworks.aphpkb.org            
