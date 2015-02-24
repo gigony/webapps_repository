@@ -57,6 +57,7 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
 7. httpd-vhosts.conf
   - Edit /private/etc/apache2/extra/httpd-vhosts.conf:
   - Delete everything after line 22 and paste this (replace YOURUSERNAME with your home directory’s name):
+
      	 <Directory "/Users/YOURUSERNAME/Web">
             Options Indexes MultiViews FollowSymLinks
             AllowOverride All
@@ -88,13 +89,17 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
   - `$ mysql.server restart`
   - `$ mysql_secure_installation`
   - Paste this into your Terminal to create a new database:
+
          $ mysql.server stop
          $ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
-  - OS X expects the MySQL socket to sit in /var/mysql, so we create that folder and add a symbolic link to where the socket actually lives:
+
+  -   - OS X expects the MySQL socket to sit in /var/mysql, so we create that folder and add a symbolic link to where the socket actually lives:
+
          $ sudo mkdir /var/mysql
          $ sudo chmod 755 /var/mysql
          $ sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
-  - Now try starting the MySQL server:
+
+  -   - Now try starting the MySQL server:
     - `mysql.server start`
 9. Done
   - You can now start Apache and MySQL like this:
@@ -262,8 +267,8 @@ Apache server's user and group name : http://serverfault.com/questions/152175/ap
 - No plugins
 - Error handling : production level
 - KB Admin Account Details
-  - my information including email address.
   - password: test
+
     	DB_USER = test
 	    DB_PASSWORD = test 
     	DB_HOST = localhost 
