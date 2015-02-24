@@ -13,11 +13,13 @@ Install APM
 
 Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql-and-php-with-homebrew-4bc236d7d9fa
 
-1. Install Xcode Command Line Tools
+1) Install Xcode Command Line Tools
   - `$ xcode-select --install` or [link](https://developer.apple.com/downloads/index.action?=command%20line%20tools#)
-2. Install HomeBrew
+  - 
+2) Install HomeBrew
   - `$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-3. Install dnsmasq
+  
+3) Install dnsmasq
   - `$ brew install dnsmasq`
   - `$ cd $(brew --prefix)`
   - `$ mkdir etc`
@@ -26,7 +28,8 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
   - `$ sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist`
   - `$ sudo mkdir /etc/resolver`
   - `$ sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'`
-4. httpd.conf
+
+4) httpd.conf
   - Edit /private/etc/apache2/httpd.conf
     - Uncomment some lines
       - line 160 
@@ -39,69 +42,75 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
       - line 499
         - `Include /private/etc/apache2/extra/httpd-vhosts.conf`
     - Add “index.php” in line 271
+```
            <IfModule dir_module>
               DirectoryIndex index.html index.php
            </IfModule>
-5. Install Homebrew-based php55
+```
+
+5) Install Homebrew-based php55
   - installed brew-based php5.5 because of libpng and mcrypt module
     - http://stackoverflow.com/questions/26493762/yosemite-php-gd-mcrypt-installation/26505558#26505558
       - `brew install php55`
       - `brew install php55-mcrypt`
         - `/usr/local/etc/php/5.5/conf.d/ext-mcrypt.ini` was created, do not forget to remove it upon extension removal.
 
-6. The Web Folder
+6) The Web Folder
   - `$ mkdir ~/Web`
   - `$ git clone git@github.com:gigony/webapps_repository.git ./`
   - You can find and refer some configuration files in `config` folder.
 
-7. httpd-vhosts.conf
+7) httpd-vhosts.conf
   - Edit /private/etc/apache2/extra/httpd-vhosts.conf:
   - Delete everything after line 22 and paste this (replace YOURUSERNAME with your home directory’s name):
+```
+        <Directory "/Users/YOURUSERNAME/Web">
+          Options Indexes MultiViews FollowSymLinks
+          AllowOverride All
+          Order allow,deny
+          Allow from all
+          Require all granted
+        </Directory>
+        <Virtualhost *:80>
+            VirtualDocumentRoot "/Users/YOURUSERNAME/Web/_localhost"
+            UseCanonicalName Off
+        </Virtualhost>
+       <Virtualhost *:80>
+           VirtualDocumentRoot "/Users/YOURUSERNAME/Web/%2"
+           ServerName sites.dev
+           ServerAlias www.*.dev
+           ServerAlias www.*.dev.*.xip.io
+           UseCanonicalName Off
+        </Virtualhost>
+        <Virtualhost *:80>
+            VirtualDocumentRoot "/Users/YOURUSERNAME/Web/%1"
+            ServerName sites.dev
+            ServerAlias *.dev
+            ServerAlias *.dev.*.xip.io
+            UseCanonicalName Off
+        </Virtualhost>
+```
 
-     	 <Directory "/Users/YOURUSERNAME/Web">
-            Options Indexes MultiViews FollowSymLinks
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-            Require all granted
-          </Directory>
-          <Virtualhost *:80>
-              VirtualDocumentRoot "/Users/YOURUSERNAME/Web/_localhost"
-              UseCanonicalName Off
-          </Virtualhost>
-         <Virtualhost *:80>
-             VirtualDocumentRoot "/Users/YOURUSERNAME/Web/%2"
-             ServerName sites.dev
-             ServerAlias www.*.dev
-             ServerAlias www.*.dev.*.xip.io
-             UseCanonicalName Off
-          </Virtualhost>
-          <Virtualhost *:80>
-              VirtualDocumentRoot "/Users/YOURUSERNAME/Web/%1"
-              ServerName sites.dev
-              ServerAlias *.dev
-              ServerAlias *.dev.*.xip.io
-              UseCanonicalName Off
-          </Virtualhost>
-
-8. Install MySQL
+8) Install MySQL
   - `$ brew install mysql`
   - `$ mysql.server restart`
   - `$ mysql_secure_installation`
   - Paste this into your Terminal to create a new database:
-
+```
          $ mysql.server stop
          $ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+```
 
-  -   - OS X expects the MySQL socket to sit in /var/mysql, so we create that folder and add a symbolic link to where the socket actually lives:
-
+  - OS X expects the MySQL socket to sit in /var/mysql, so we create that folder and add a symbolic link to where the socket actually lives:
+```
          $ sudo mkdir /var/mysql
          $ sudo chmod 755 /var/mysql
          $ sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
-
-  -   - Now try starting the MySQL server:
+```
+  - Now try starting the MySQL server:
     - `mysql.server start`
-9. Done
+    
+9) Done
   - You can now start Apache and MySQL like this:
     - `$ mysql.server start`
     - `$ sudo apachectl restart`
@@ -416,7 +425,7 @@ timeclock
 
 ** Setup procedure **
 
-1. make a database `timeclock` and provide access authorization.
+1. Make a database `timeclock` and provide access authorization.
   - `create database timeclock;`
   - `GRANT ALL on timeclock.* to test;`
 2. Modifiy `create_tables.sql`
