@@ -533,3 +533,28 @@ opencart
     -------------------------------------------------------------------------------
     SUM:                          1687          41830          11062         252832
     -------------------------------------------------------------------------------
+
+
+DB Backup/Restore
+=================
+
+Current DB backups are located in `config/db` folder.
+
+Backup
+------
+     mysqldump --opt -u test -p faqforge >faqforge.sql
+     mysqldump --opt -u test -p akb >akb.sql
+     mysqldump --opt -u test -p opencart >opencart.sql
+     mysqldump --opt -u test -p schoolmate >schoolmate.sql
+     mysqldump --opt -u test -p timeclock > timeclock.sql
+     mysqldump --opt -u test -p webchess > webchess.sql
+     
+Restore
+--------
+     mysql -u test -p faqforge < faqforge.sql
+     mysql -u test -p akb < akb.sql
+     mysql -u test -p opencart < opencart.sql
+     mysql -u test -p schoolmate < schoolmate.sql
+     mysql -u test -p timeclock < timeclock.sql
+     mysql -u test -p webchess < webchess.sql
+     
