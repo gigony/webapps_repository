@@ -15,7 +15,7 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
 
 1) Install Xcode Command Line Tools
   - `$ xcode-select --install` or [link](https://developer.apple.com/downloads/index.action?=command%20line%20tools#)
-  - 
+ 
 2) Install HomeBrew
   - `$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
   
