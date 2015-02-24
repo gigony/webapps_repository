@@ -204,6 +204,10 @@ To run mysql as a test user, use this command:
 `$ mysql -u test -p`
 
 
+##### Measuring lines of code (LOC) : http://cloc.sourceforge.net/
+
+     $ ./cloc-1.62.pl [web application folder]
+
 
 faqforge
 --------
