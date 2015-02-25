@@ -7,21 +7,27 @@ The followings are instructions for application installation and setup.
 Access to web applications
 ===========================
 - faqforge 1.3.2
+  - http://faqforge.dev
   - http://faqforge.dev.[serverip].xip.io
   - http://[serverip]:9001
 - aphpkb 0.95.8
+  - http://aphpkb.dev
   - http://aphpkb.dev.[serverip].xip.io
   - http://[serverip]:9002
 - school mate 1.5.4
+  - http://schoolmate.dev
   - http://schoolmate.dev.[serverip].xip.io
   - http://[serverip]:9003
 - timeclock 1.0.4
+  - http://timeclock.dev
   - http://timeclock.dev.[serverip].xip.io
   - http://[serverip]:9004
 - webchess 1.0.0rc2
+  - http://webchess.dev
   - http://webchess.dev.[serverip].xip.io
   - http://[serverip]:9005
 - opencart 2.0.1.1
+  - http://opencart.dev
   - http://opencart.dev.[serverip].xip.io
   - http://[serverip]:9006
 
