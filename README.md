@@ -4,6 +4,28 @@ Introduction
 This is a web application repository for an experiment.
 The followings are instructions for application installation and setup.
 
+Access to web applications
+===========================
+- faqforge 1.3.2
+  - http://faqforge.dev.[serverip].xip.io
+  - http://[serverip]:9001
+- aphpkb 0.95.8
+  - http://aphpkb.dev.[serverip].xip.io
+  - http://[serverip]:9002
+- school mate 1.5.4
+  - http://schoolmate.dev.[serverip].xip.io
+  - http://[serverip]:9003
+- timeclock 1.0.4
+  - http://timeclock.dev.[serverip].xip.io
+  - http://[serverip]:9004
+- webchess 1.0.0rc2
+  - http://webchess.dev.[serverip].xip.io
+  - http://[serverip]:9005
+- opencart 2.0.1.1
+  - http://opencart.dev.[serverip].xip.io
+  - http://[serverip]:9006
+
+
 
 Install Apache, PHP, Mysql
 =============================
@@ -13,6 +35,10 @@ Install APM
 
 Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql-and-php-with-homebrew-4bc236d7d9fa
 
+0) Install Sublime Text 3
+  - http://www.sublimetext.com/3
+  - `$ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl`
+    
 1) Install Xcode Command Line Tools
   - `$ xcode-select --install` or [link](https://developer.apple.com/downloads/index.action?=command%20line%20tools#)
  
@@ -29,9 +55,27 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
   - `$ sudo mkdir /etc/resolver`
   - `$ sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'`
 
-4) httpd.conf
+4) The Web Folder
+  - `$ mkdir ~/Web`
+  - `$ cd ~/Web`
+  - `$ git clone https://github.com/gigony/webapps_repository.git ./`
+  - You can find and refer some configuration files in `config` folder.
+
+
+5) Install Homebrew-based php55
+  - installed brew-based php5.5 because of libpng and mcrypt module
+    - http://stackoverflow.com/questions/26493762/yosemite-php-gd-mcrypt-installation/26505558#26505558
+      - `brew tap homebrew/dupes`
+      - `brew tap homebrew/versions`
+      - `brew tap homebrew/homebrew-php`
+      - `brew install php55`
+      - `brew install php55-mcrypt`
+        - `/usr/local/etc/php/5.5/conf.d/ext-mcrypt.ini` was created, do not forget to remove it upon extension removal.
+
+
+6) httpd.conf
   - Edit /private/etc/apache2/httpd.conf
-    - Uncomment some lines
+    - Uncomment or edit some lines
       - line 160 
         - `LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so`
       - line 168
@@ -47,18 +91,6 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
               DirectoryIndex index.html index.php
            </IfModule>
 ```
-
-5) Install Homebrew-based php55
-  - installed brew-based php5.5 because of libpng and mcrypt module
-    - http://stackoverflow.com/questions/26493762/yosemite-php-gd-mcrypt-installation/26505558#26505558
-      - `brew install php55`
-      - `brew install php55-mcrypt`
-        - `/usr/local/etc/php/5.5/conf.d/ext-mcrypt.ini` was created, do not forget to remove it upon extension removal.
-
-6) The Web Folder
-  - `$ mkdir ~/Web`
-  - `$ git clone git@github.com:gigony/webapps_repository.git ./`
-  - You can find and refer some configuration files in `config` folder.
 
 7) httpd-vhosts.conf
   - Edit /private/etc/apache2/extra/httpd-vhosts.conf:
@@ -90,6 +122,7 @@ Reference : https://medium.com/@raureif/os-x-yosemite-how-to-set-up-apache-mysql
             UseCanonicalName Off
         </Virtualhost>
 ```
+Use `Allow from all` instead of `Require all granted` if Apache2 version is less than 2.4
 
 8) Install MySQL
   - `$ brew install mysql`
@@ -174,10 +207,12 @@ Reference: http://www.kaffeetalk.de/using-register_globals-in-php-5-5/
     ?>
 
 **Some statements were changed in `/usr/local/etc/php/5.5/php.ini`:**
+	upload_tmp_dir = /tmp    // line 791
+    session.save_path = "/tmp"    // line 1390
 
     short_open_tag = On  // line 202
-    error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE // line 452
-    display_errors = On  //line 469
+    error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING & ~E_NOTICE // line 452
+    display_errors = Off  //line 469
     auto_prepend_file = '/usr/share/php/register_globals.php' // line 667
 
 Applications
@@ -211,12 +246,21 @@ added an account in mysql.
 - id: test
 - pw: test
 
+```
+$ mysql -u root -p mysql
+mysql> create user 'test'@'%' identified by 'test';
+mysql> create user 'test'@'localhost' identified by 'test';
+
+```
+
 To run mysql as root, use this command:
 `$ mysql -u root -p`
 
 To run mysql as a test user, use this command:
 `$ mysql -u test -p`
 
+##### Managing MySql DB 
+http://www.sequelpro.com/download
 
 ##### Measuring lines of code (LOC) : http://cloc.sourceforge.net/
 
@@ -276,8 +320,10 @@ Apache server's user and group name : http://serverfault.com/questions/152175/ap
 - No plugins
 - Error handling : production level
 - KB Admin Account Details
+  - admin id: admin
   - password: test
 
+```
     	DB_USER = test
 	    DB_PASSWORD = test 
     	DB_HOST = localhost 
@@ -294,12 +340,15 @@ Apache server's user and group name : http://serverfault.com/questions/152175/ap
     	Admin First/Last Name = Gigon Bae
     	Admin Email Address = gigony@gmail.com
     	Admin Password = test
+```
 
 #### Issues
 
 Had some grammar errors in source code
   - http://sourceforge.net/projects/aphpkb/reviews
     - `$u = escdata(xss_clean(($_POST['username']));` should be `$u = escdata(xss_clean(($_POST['username'])));` in login.php(line 27) and in register.php(line 40)
+  - Fatal error: Call to undefined function newmyql() in /Users/gbae/Web/aphpkb/pending.php on line 7
+    - `$mysqldb = newmyql();` to `$mysqldb = new mysql();`
     
 ### Info
 
@@ -558,7 +607,7 @@ DB Backup/Restore
 
 Current DB backups are located in `config/db` folder.
 
-Backup
+Backup method
 ------
      mysqldump --opt -u test -p faqforge >faqforge.sql
      mysqldump --opt -u test -p akb >akb.sql
@@ -567,12 +616,24 @@ Backup
      mysqldump --opt -u test -p timeclock > timeclock.sql
      mysqldump --opt -u test -p webchess > webchess.sql
      
-Restore
+Restore DB
 --------
-     mysql -u test -p faqforge < faqforge.sql
-     mysql -u test -p akb < akb.sql
-     mysql -u test -p opencart < opencart.sql
-     mysql -u test -p schoolmate < schoolmate.sql
-     mysql -u test -p timeclock < timeclock.sql
-     mysql -u test -p webchess < webchess.sql
+	mysql> create database faqforge;
+    mysql> GRANT ALL on faqforge.* to test;
+	mysql> create database akb;
+    mysql> GRANT ALL on akb.* to test;
+    mysql> create database timeclock;
+    mysql> GRANT ALL on timeclock.* to test;
+	mysql> create database schoolmate;
+    mysql> GRANT ALL on schoolmate.* to test;
+	mysql> create database webchess;
+    mysql> GRANT ALL on webchess.* to test;
+	mysql> create database opencart;
+    mysql> GRANT ALL on opencart.* to test;    
+    mysql -u test -p faqforge < faqforge.sql
+    mysql -u test -p akb < akb.sql
+    mysql -u test -p opencart < opencart.sql
+    mysql -u test -p schoolmate < schoolmate.sql
+    mysql -u test -p timeclock < timeclock.sql
+    mysql -u test -p webchess < webchess.sql
      
