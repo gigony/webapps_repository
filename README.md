@@ -200,14 +200,15 @@ Reference: http://www.kaffeetalk.de/using-register_globals-in-php-5-5/
     }
     function session_is_registered($x) {return isset($_SESSION[$x]);}
     function session_unregister($name){
-    	global $$name;
-    	unset($_SESSION[$name]);
-    	unset($$name);
+      global $$name;
+      unset($_SESSION[$name]);
+      unset($$name);
     }
     ?>
 
 **Some statements were changed in `/usr/local/etc/php/5.5/php.ini`:**
-	upload_tmp_dir = /tmp    // line 791
+
+    upload_tmp_dir = /tmp    // line 791
     session.save_path = "/tmp"    // line 1390
 
     short_open_tag = On  // line 202
@@ -237,7 +238,157 @@ from http://dl.acm.org/citation.cfm?id=2610399 and http://people.csail.mit.edu/a
 from http://www.brandingly.org/10-open-source-php-e-commerce-applications/
 - opencart
   - http://www.opencart.com/?route=demonstration/demonstration
-  
+
+faqforge
+---------
+
+      29 text files.
+      25 unique files.
+      15 files ignored.
+
+  http://cloc.sourceforge.net v 1.62  T=0.14 s (153.1 files/s, 13787.5 lines/s)
+  -------------------------------------------------------------------------------
+  Language                     files          blank        comment           code
+  -------------------------------------------------------------------------------
+  PHP                             19            190            469           1056
+  CSS                              1             23              1            126
+  SQL                              1              2              0             24
+  -------------------------------------------------------------------------------
+  SUM:                            21            215            470           1206
+  -------------------------------------------------------------------------------
+
+
+aphpkb
+------
+
+
+          61 text files.
+          59 unique files.
+           6 files ignored.
+
+    http://cloc.sourceforge.net v 1.62  T=0.36 s (151.6 files/s, 15655.5 lines/s)
+    -------------------------------------------------------------------------------
+    Language                     files          blank        comment           code
+    -------------------------------------------------------------------------------
+    PHP                             47           1021            291           3020
+    Javascript                       3             11             18           1090
+    HTML                             3             22             15            133
+    SQL                              1              5              1             51
+    XML                              1              1              0              0
+    -------------------------------------------------------------------------------
+    SUM:                            55           1060            325           4294
+    -------------------------------------------------------------------------------
+
+schoolmate
+-----------
+
+
+          67 text files.
+          67 unique files.
+           3 files ignored.
+
+    http://cloc.sourceforge.net v 1.62  T=0.32 s (197.0 files/s, 26075.0 lines/s)
+    -------------------------------------------------------------------------------
+    Language                     files          blank        comment           code
+    -------------------------------------------------------------------------------
+    PHP                             63           1200            427           6554
+    SQL                              1             55              0            233
+    -------------------------------------------------------------------------------
+    SUM:                            64           1255            427           6787
+    -------------------------------------------------------------------------------
+
+phpsysinfo
+-----------
+
+     513 text files.
+     498 unique files.
+     240 files ignored.
+
+    http://cloc.sourceforge.net v 1.62  T=3.39 s (80.6 files/s, 22306.1 lines/s)
+    -------------------------------------------------------------------------------
+    Language                     files          blank        comment           code
+    -------------------------------------------------------------------------------
+    Javascript                      38           5031           6807          25310
+    XML                            111              0            432          14811
+    PHP                             81           1065           6731          10963
+    CSS                             20            248             57           1405
+    XSLT                             1              2              1           1149
+    HTML                            15             24             30            873
+    XSD                              3             34              2            484
+    Bourne Shell                     2             10              6             31
+    JSON                             1              0              0             18
+    DOS Batch                        1              0              0             10
+    -------------------------------------------------------------------------------
+    SUM:                           273           6414          14066          55054
+    -------------------------------------------------------------------------------
+    
+    
+timeclock
+---------
+
+
+          77 text files.
+          74 unique files.
+           6 files ignored.
+
+    http://cloc.sourceforge.net v 1.62  T=0.67 s (106.3 files/s, 35374.4 lines/s)
+    -------------------------------------------------------------------------------
+    Language                     files          blank        comment           code
+    -------------------------------------------------------------------------------
+    PHP                             63           2477            877          17446
+    Javascript                       4            182            599           1474
+    CSS                              2              2              0            278
+    SQL                              2             69              0            220
+    -------------------------------------------------------------------------------
+    SUM:                            71           2730           1476          19418
+
+
+webchess
+---------
+
+
+          55 text files.
+          55 unique files.
+          12 files ignored.
+
+    http://cloc.sourceforge.net v 1.62  T=0.41 s (105.9 files/s, 25723.1 lines/s)
+    -------------------------------------------------------------------------------
+    Language                     files          blank        comment           code
+    -------------------------------------------------------------------------------
+    PHP                             30            876            978           4716
+    Javascript                      10            386            510           2253
+    CSS                              3            114             56            552
+    -------------------------------------------------------------------------------
+    SUM:                            43           1376           1544           7521
+    -------------------------------------------------------------------------------
+
+opencart
+---------
+
+        1789 text files.
+        1737 unique files.
+          79 files ignored.
+
+    http://cloc.sourceforge.net v 1.62  T=11.25 s (150.0 files/s, 27187.1 lines/s)
+    -------------------------------------------------------------------------------
+    Language                     files          blank        comment           code
+    -------------------------------------------------------------------------------
+    PHP                            959          29732           2791         110212
+    Smarty                         452           2340              0          64210
+    CSS                             33           1356            320          31651
+    Javascript                      84           5928           5613          25172
+    LESS                            94           1196           1564           8507
+    SQL                              1            500            690           6601
+    SASS                            23             42             55           3143
+    HTML                            29            727             27           2941
+    JSON                             8              0              0            332
+    Bourne Shell                     1              4              0             34
+    XML                              2              1              0             23
+    make                             1              4              2              6
+    -------------------------------------------------------------------------------
+    SUM:                          1687          41830          11062         252832
+    -------------------------------------------------------------------------------
+
 
 Application Setup
 ====================
@@ -282,21 +433,7 @@ removed `DEFAULT '0'` for id in `faqforge.sql` file.
   - http://stackoverflow.com/questions/3682615/how-to-fix-the-session-register-deprecated-issue
   - http://php.net/manual/en/function.session-is-registered.php
 
-#### Info
-      29 text files.
-      25 unique files.
-      15 files ignored.
 
-	http://cloc.sourceforge.net v 1.62  T=0.14 s (153.1 files/s, 13787.5 lines/s)
-	-------------------------------------------------------------------------------
-	Language                     files          blank        comment           code
-	-------------------------------------------------------------------------------
-	PHP                             19            190            469           1056
-	CSS                              1             23              1            126
-	SQL                              1              2              0             24
-	-------------------------------------------------------------------------------
-	SUM:                            21            215            470           1206
-	-------------------------------------------------------------------------------
 
 aphpkb
 ------
@@ -324,22 +461,22 @@ Apache server's user and group name : http://serverfault.com/questions/152175/ap
   - password: test
 
 ```
-    	DB_USER = test
-	    DB_PASSWORD = test 
-    	DB_HOST = localhost 
-    	DB_NAME = akb
-    	DB_MAX_REC = 5
-    	KB_NAME = aphpkb
-    	KB_URL = http://aphpkb.dev/kb/
-    	KB_HOME_URL = http://www.aphpkb.org
-    	PLUGINHTML = 
-    	PLUGIN_RSS = 
-    	PLUGINMAA = 
-    	PRODLEV = 1
+      DB_USER = test
+      DB_PASSWORD = test 
+      DB_HOST = localhost 
+      DB_NAME = akb
+      DB_MAX_REC = 5
+      KB_NAME = aphpkb
+      KB_URL = http://aphpkb.dev/kb/
+      KB_HOME_URL = http://www.aphpkb.org
+      PLUGINHTML = 
+      PLUGIN_RSS = 
+      PLUGINMAA = 
+      PRODLEV = 1
 
-    	Admin First/Last Name = Gigon Bae
-    	Admin Email Address = gigony@gmail.com
-    	Admin Password = test
+      Admin First/Last Name = Gigon Bae
+      Admin Email Address = gigony@gmail.com
+      Admin Password = test
 ```
 
 #### Issues
@@ -350,24 +487,6 @@ Had some grammar errors in source code
   - Fatal error: Call to undefined function newmyql() in /Users/gbae/Web/aphpkb/pending.php on line 7
     - `$mysqldb = newmyql();` to `$mysqldb = new mysql();`
     
-### Info
-
-          61 text files.
-          59 unique files.
-           6 files ignored.
-
-    http://cloc.sourceforge.net v 1.62  T=0.36 s (151.6 files/s, 15655.5 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    PHP                             47           1021            291           3020
-    Javascript                       3             11             18           1090
-    HTML                             3             22             15            133
-    SQL                              1              5              1             51
-    XML                              1              1              0              0
-    -------------------------------------------------------------------------------
-    SUM:                            55           1060            325           4294
-    -------------------------------------------------------------------------------
 
 schoolmate
 ----------
@@ -386,21 +505,6 @@ schoolmate
 
 Current admin's id/pass is `test/test`
 
-#### Info
-
-          67 text files.
-          67 unique files.
-           3 files ignored.
-
-    http://cloc.sourceforge.net v 1.62  T=0.32 s (197.0 files/s, 26075.0 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    PHP                             63           1200            427           6554
-    SQL                              1             55              0            233
-    -------------------------------------------------------------------------------
-    SUM:                            64           1255            427           6787
-    -------------------------------------------------------------------------------
 
 phpsysinfo (didn't work well)
 -----------
@@ -431,28 +535,7 @@ In php.ini
     safe_mode = Off
     include_path = "."
 
-#### Info
-     513 text files.
-     498 unique files.
-     240 files ignored.
 
-    http://cloc.sourceforge.net v 1.62  T=3.39 s (80.6 files/s, 22306.1 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    Javascript                      38           5031           6807          25310
-    XML                            111              0            432          14811
-    PHP                             81           1065           6731          10963
-    CSS                             20            248             57           1405
-    XSLT                             1              2              1           1149
-    HTML                            15             24             30            873
-    XSD                              3             34              2            484
-    Bourne Shell                     2             10              6             31
-    JSON                             1              0              0             18
-    DOS Batch                        1              0              0             10
-    -------------------------------------------------------------------------------
-    SUM:                           273           6414          14066          55054
-    -------------------------------------------------------------------------------
 
 timeclock
 ----------
@@ -497,21 +580,6 @@ timeclock
 - Create at least one group by clicking on the Create Group link on the left side of the page. You MUST create a group to achieve the desired results. Create more groups if needed.
 - Add your users by clicking on the Create New Users link, and assign them to the office(s) and group(s) you created above. Give Sys Admin level access for users who will administrate PHP Timeclock. Give Time Admin level access for users who will need to edit users' time, but who will not need Sys Admin level access. If you require the reports to be secured so only certain users can run them, then give these users reports level access.
 
-#### Info
-          77 text files.
-          74 unique files.
-           6 files ignored.
-
-    http://cloc.sourceforge.net v 1.62  T=0.67 s (106.3 files/s, 35374.4 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    PHP                             63           2477            877          17446
-    Javascript                       4            182            599           1474
-    CSS                              2              2              0            278
-    SQL                              2             69              0            220
-    -------------------------------------------------------------------------------
-    SUM:                            71           2730           1476          19418
 
 webchess
 ---------
@@ -526,26 +594,11 @@ webchess
 
 ### http://webchess.dev/install.php
       Server: localhost
-      User:	test
-      Password:	test
+      User: test
+      Password: test
       Database name: webchess
 
-#### Info
 
-          55 text files.
-          55 unique files.
-          12 files ignored.
-
-    http://cloc.sourceforge.net v 1.62  T=0.41 s (105.9 files/s, 25723.1 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    PHP                             30            876            978           4716
-    Javascript                      10            386            510           2253
-    CSS                              3            114             56            552
-    -------------------------------------------------------------------------------
-    SUM:                            43           1376           1544           7521
-    -------------------------------------------------------------------------------
 
 opencart
 --------
@@ -575,33 +628,6 @@ opencart
   - http://opencart.dev/admin/
 
 
-#### Info
-
-        1789 text files.
-        1737 unique files.
-          79 files ignored.
-
-    http://cloc.sourceforge.net v 1.62  T=11.25 s (150.0 files/s, 27187.1 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    PHP                            959          29732           2791         110212
-    Smarty                         452           2340              0          64210
-    CSS                             33           1356            320          31651
-    Javascript                      84           5928           5613          25172
-    LESS                            94           1196           1564           8507
-    SQL                              1            500            690           6601
-    SASS                            23             42             55           3143
-    HTML                            29            727             27           2941
-    JSON                             8              0              0            332
-    Bourne Shell                     1              4              0             34
-    XML                              2              1              0             23
-    make                             1              4              2              6
-    -------------------------------------------------------------------------------
-    SUM:                          1687          41830          11062         252832
-    -------------------------------------------------------------------------------
-
-
 DB Backup/Restore
 =================
 
@@ -618,17 +644,17 @@ Backup method
      
 Restore DB
 --------
-	mysql> create database faqforge;
+  mysql> create database faqforge;
     mysql> GRANT ALL on faqforge.* to test;
-	mysql> create database akb;
+  mysql> create database akb;
     mysql> GRANT ALL on akb.* to test;
     mysql> create database timeclock;
     mysql> GRANT ALL on timeclock.* to test;
-	mysql> create database schoolmate;
+  mysql> create database schoolmate;
     mysql> GRANT ALL on schoolmate.* to test;
-	mysql> create database webchess;
+  mysql> create database webchess;
     mysql> GRANT ALL on webchess.* to test;
-	mysql> create database opencart;
+  mysql> create database opencart;
     mysql> GRANT ALL on opencart.* to test;    
     mysql -u test -p faqforge < faqforge.sql
     mysql -u test -p akb < akb.sql
