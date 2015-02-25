@@ -4,7 +4,7 @@ require"./config/auth.php";
 include"./config/config.php";
 include "./classes/mysql.class.php";
 
-$mysqldb = newmyql();
+$mysqldb = new mysql();
 $mysqldb->connect();
 
 if($_REQUEST['type']){
