@@ -578,6 +578,7 @@ timeclock
        $db_password = "test";
        $db_name = "timeclock";
 5. run webbrowser
+  - admin id/pw: admin/admin
 
 
 > The followings are needed to give a proper configuration:
