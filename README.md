@@ -578,6 +578,7 @@ timeclock
        $db_password = "test";
        $db_name = "timeclock";
 5. run webbrowser
+  - admin id/pw: admin/admin
 
 
 > The followings are needed to give a proper configuration:
@@ -650,17 +651,17 @@ Backup method
      
 Restore DB
 --------
-  mysql> create database faqforge;
+    mysql> create database faqforge;
     mysql> GRANT ALL on faqforge.* to test;
-  mysql> create database akb;
+    mysql> create database akb;
     mysql> GRANT ALL on akb.* to test;
     mysql> create database timeclock;
     mysql> GRANT ALL on timeclock.* to test;
-  mysql> create database schoolmate;
+    mysql> create database schoolmate;
     mysql> GRANT ALL on schoolmate.* to test;
-  mysql> create database webchess;
+    mysql> create database webchess;
     mysql> GRANT ALL on webchess.* to test;
-  mysql> create database opencart;
+    mysql> create database opencart;
     mysql> GRANT ALL on opencart.* to test;    
     mysql -u test -p faqforge < faqforge.sql
     mysql -u test -p akb < akb.sql
