@@ -1,3 +1,5 @@
 opencart/system/cache
 opencart/image/cache
 .DS_STORE
+opencart/image/cache/catalog/demo/**/*.*
+opencart/system/upload/*.*
